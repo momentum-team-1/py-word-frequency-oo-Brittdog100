@@ -86,11 +86,17 @@ class FreqPrinter:
 		right | 6    ******
 		"""
 		i = 0
+		temp = []
+		longest = 0
 		for word in sorted(self.list, key=self.list.get, reverse=True):
-			print(word.rjust(10, ' '),'|',"*" * self.list[word])
+			temp.append(word)
+			if len(word) > longest:
+				longest = len(word)
 			i += 1
 			if i > 9:
 				break
+		for word in temp:
+			print(word.rjust(longest, ' '),'|',"*" * self.list[word])
 				
 
 
